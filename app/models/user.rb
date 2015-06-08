@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     belongs_to :referrer, :class_name => "User", :foreign_key => "referrer_id"
     has_many :referrals, :class_name => "User", :foreign_key => "referrer_id"
-    
+
     attr_accessible :email
 
     validates :email, :uniqueness => true, :format => { :with => /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/i, :message => "Invalid email format." }
@@ -13,25 +13,25 @@ class User < ActiveRecord::Base
     REFERRAL_STEPS = [
         {
             'count' => 5,
-            "html" => "Shave<br>Cream",
+            "html" => "$50 PYL<br>Credit",
             "class" => "two",
             "image" =>  ActionController::Base.helpers.asset_path("refer/cream-tooltip@2x.png")
         },
         {
             'count' => 10,
-            "html" => "Truman Handle<br>w/ Blade",
+            "html" => "$100 PYL<br>Credit",
             "class" => "three",
             "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
         },
         {
             'count' => 25,
-            "html" => "Winston<br>Shave Set",
+            "html" => "$100 PYL Credit &<br>$100 David Jones<br>Voucher",
             "class" => "four",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
             'count' => 50,
-            "html" => "One Year<br>Free Blades",
+            "html" => "$150 PYL Credit &<br>$300 David Jones<br>Voucher",
             "class" => "five",
             "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
         }
